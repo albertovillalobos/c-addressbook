@@ -18,19 +18,20 @@ struct contact {
     char email[255];
     char phone[255];
     
-    struct contact *nxtPtr;
-    struct contact *prvPtr;
+    struct contact *nextPointer;
+    struct contact *previousPointer;
 };
 
 typedef struct contact Contact;
 typedef Contact * ContactPointer;
 
 
-void addContact(ContactPointer * theContact, int index, char *data);
+void addContact(ContactPointer * theContact, int targetIndex, char *data);
 //void deleteContact(ContactPointer * theContact, int index);
-//void printContacts(ContactPointer * theContact, int index);
+void printContacts(ContactPointer * theContact);
 //void printField(ContactPointer * theContact, int index, char *field);
 //int getListSize(ContactPointer * theContact);
+int getCount(ContactPointer * theContact);
 //void saveFile(ContactPointer * theContact, char const * filename);
 //void loadFile(char * filename);
 
