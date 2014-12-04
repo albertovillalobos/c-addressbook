@@ -8,19 +8,30 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "contact.c"
+#include "contact.h"
 
 int main(int argc, const char * argv[]) {
-    
-    char choice;
+    ContactPointer headContact; //Contact at the head
+    ContactPointer tailContact; //Contact at the tail
+    ContactPointer currentContact; //Current contact
+    int contactsCounter;
+    char choiceAction;
+    char choiceIndex;
+    char choiceData[255];
     
     while(1) {
         printf("Please Enter an option:\n");
-        scanf("%s",&choice);
-        switch (choice) {
+        scanf("%s",&choiceAction);
+        switch (choiceAction) {
             case 'a':
             case 'A':
-                printf("You wanna add\n");
+                printf("So you wanna add something, which index at?: \n");
+                scanf("%s",&choiceIndex);
+                printf("So you wanna add it at index %c, what's its info?\n", choiceIndex);
+                scanf("%s",choiceData);
+                printf("So you wanna add %s at index %c huh? Ok lemme try...\n",choiceData, choiceIndex);
+                addContact(&headContact, 0, choiceData);
+                printf("Success!");
                 break;
                 
             case 'd':
@@ -61,8 +72,6 @@ int main(int argc, const char * argv[]) {
             default:
                 break;
         }
-        
-        
     }
     return 0;
     

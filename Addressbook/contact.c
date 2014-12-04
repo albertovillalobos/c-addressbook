@@ -11,11 +11,8 @@
 #include "contact.h"
 
 
-// Add a contact, pass the contact pointer, desired index, and comma
-// separated values in a string
 void addContact(ContactPointer * theContact, int index, char *data) {
 
-    
     ContactPointer currentContactPointer = *theContact;
     ContactPointer previousContactPointer;
     ContactPointer nextContactPointer;
@@ -26,22 +23,27 @@ void addContact(ContactPointer * theContact, int index, char *data) {
     for (int x=0; data!=NULL; x++) {
         switch (x) {
             case 0:
+                printf("found lastname: %s", data);
                 strcpy(newContactPointer->lastName, data);
                 break;
                 
             case 1:
+                printf("found firstname: %s", data);
                 strcpy(newContactPointer->firstName, data);
                 break;
                 
             case 2:
+                printf("found email: %s", data);
                 strcpy(newContactPointer->email, data);
                 break;
                 
             case 3:
-                strcpy(newContactPointer->phone, data);                
+                printf("found phone: %s", data);                
+                strcpy(newContactPointer->phone, data);
             default:
                 break;
         }
     }
+    printf("Last Name: %s, First Name: %s, Email: %s, Phone: %s", newContactPointer->lastName, newContactPointer->firstName, newContactPointer->email, newContactPointer->phone);
 }
 
