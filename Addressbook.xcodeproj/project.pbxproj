@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A3D34F41A2FEDB100E08051 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D34F31A2FEDB100E08051 /* main.c */; };
+		6A7589981A30042B0048C506 /* contact.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A7589961A30042B0048C506 /* contact.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		6A3D34F01A2FEDB100E08051 /* Addressbook */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Addressbook; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3D34F31A2FEDB100E08051 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		6A7589961A30042B0048C506 /* contact.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = contact.c; sourceTree = "<group>"; };
+		6A7589971A30042B0048C506 /* contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contact.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				6A3D34F31A2FEDB100E08051 /* main.c */,
+				6A7589961A30042B0048C506 /* contact.c */,
+				6A7589971A30042B0048C506 /* contact.h */,
 			);
 			path = Addressbook;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A7589981A30042B0048C506 /* contact.c in Sources */,
 				6A3D34F41A2FEDB100E08051 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +238,7 @@
 				6A3D34F91A2FEDB100E08051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
