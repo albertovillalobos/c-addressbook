@@ -8,22 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
-struct contact {
-    char lastName[255];
-    char firstName[255];
-    char email[255];
-    char phone[255];
-    
-    struct contact *nxtPtr;
-    struct contact *prvPtr;
-};
-
-typedef struct contact Contact;
-typedef Contact *nextPtr;
-typedef Contact *prvPtr;
-
-
+#include "contact.c"
 
 int main(int argc, const char * argv[]) {
     
