@@ -21,8 +21,12 @@ void addContact(ContactPointer * theContact, int targetIndex, char *data) {
     ContactPointer temporaryContactPointer = malloc(sizeof(Contact));
     temporaryContactPointer = *theContact;
     
-    //
+    // placeholder to bubble the previous pointer
     ContactPointer previousContactPointer = malloc(sizeof(Contact));
+    
+    // placeholder to bubble the next pointer
+    ContactPointer nextContactPointer = malloc(sizeof(Contact));
+    
     
     // our delimiter is a comma
     char delimiter = ',';
@@ -77,7 +81,19 @@ void addContact(ContactPointer * theContact, int targetIndex, char *data) {
             newContactPointer->previousPointer = temporaryContactPointer;
             
         }
-        // 
+        // inserting somewhere in the middle
+        else {
+            for (int i=0; i < targetIndex; i = i+1) {
+                temporaryContactPointer = temporaryContactPointer->nextPointer;
+            }
+            previousContactPointer = temporaryContactPointer->previousPointer;
+            nextContactPointer = temporaryContactPointer;
+            newContactPointer->previousPointer = previousContactPointer;
+            newContactPointer->nextPointer = nextContactPointer;
+            nextContactPointer->previousPointer = newContactPointer;
+            previousContactPointer->nextPointer = newContactPointer;
+            
+        }
     }
 }
 

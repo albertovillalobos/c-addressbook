@@ -37,7 +37,7 @@ int main(int argc, const char * argv[]) {
     addContact(&headContact, 3, buffer);
     printContacts(&headContact);
     strcpy(buffer, "asshole,Life,Life@gmail.com,buttrape");
-    addContact(&headContact, 4, buffer);
+    addContact(&headContact, 3, buffer);
     printContacts(&headContact);
     printf("The count is: %d\n",getCount(&headContact));
     
