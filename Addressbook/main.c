@@ -57,65 +57,65 @@ int main(int argc, const char * argv[]) {
     
     
     
-//    while(1) {
-//        printf("Please Enter an option:\n");
-//        scanf("%s",&choiceAction);
-//        switch (choiceAction) {
-//            case 'a':
-//            case 'A':
+    while(1) {
+        printf("Please Enter an option:\n");
+        scanf("%s",&choiceAction);
+        switch (choiceAction) {
+            case 'a':
+            case 'A':
 //                printf("So you wanna add something, which index at?: \n");
-//                scanf("%s",&choiceIndex);
-//                targetIndex = atoi(&choiceIndex);
+                scanf("%s",&choiceIndex);
+                targetIndex = atoi(&choiceIndex);
 //                printf("So you wanna add it at index %c, what's its info?\n", choiceIndex);
-//                scanf("%s",choiceData);
+                scanf("%s",choiceData);
 //                printf("So you wanna add %s at index %c huh? Ok lemme try...\n",choiceData, choiceIndex);
-//                addContact(&headContact, targetIndex, choiceData);
-//                break;
-//                
-//            case 'd':
-//            case 'D':
-//                printf("You wanna Delete\n");
-//                break;
-//                
-//            case 'g':
-//            case 'G':
-//                printf("You wanna Get a contact\n");
-//                break;
-//                
-//            case 'f':
-//            case 'F':
-//                printf("You wanna get a field\n");
-//                break;
-//                
-//            case 'n':
-//            case 'N':
-//                printf("You want number of contacts\n");
-//                break;
-//                
-//            case 'l':
-//            case 'L':
-//                printf("You wanna load a file\n");
-//                break;
-//                
-//            case 's':
-//            case 'S':
-//                printf("You wanna save\n");
-//                break;
-//            
-//            case 'q':
-//            case 'Q':
-//                printf("Goodbye!\n");
-//                return 0;
-//                
-//            case 'p':
-//            case 'P':
-//                printContacts(&headContact);
-//                
-//                
-//            default:
-//                break;
-//        }
-//    }
+                addContact(&headContact, targetIndex, choiceData);
+                break;
+                
+            case 'd':
+            case 'D':
+                printf("You wanna Delete\n");
+                break;
+                
+            case 'g':
+            case 'G':
+                printf("You wanna Get a contact\n");
+                break;
+                
+            case 'f':
+            case 'F':
+                printf("You wanna get a field\n");
+                break;
+                
+            case 'n':
+            case 'N':
+                printf("You want number of contacts\n");
+                break;
+                
+            case 'l':
+            case 'L':
+                printf("You wanna load a file\n");
+                break;
+                
+            case 's':
+            case 'S':
+                printf("You wanna save\n");
+                break;
+            
+            case 'q':
+            case 'Q':
+                printf("Goodbye!\n");
+                return 0;
+                
+            case 'p':
+            case 'P':
+                printContacts(&headContact);
+                
+                
+            default:
+                break;
+        }
+    }
     return 0;
     
 }
