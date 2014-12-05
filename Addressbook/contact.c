@@ -97,6 +97,41 @@ void addContact(ContactPointer * theContact, int targetIndex, char *data) {
     }
 }
 
+void deleteContact(ContactPointer * theContact, int targetIndex) {
+    ContactPointer temporaryContactPointer = malloc(sizeof(Contact));
+    temporaryContactPointer = *theContact;
+    ContactPointer previousContactPointer = malloc(sizeof(Contact));
+    ContactPointer nextContactPointer = malloc(sizeof(Contact));
+    
+    for (int x=0; x<targetIndex; x++) {
+        temporaryContactPointer = temporaryContactPointer->nextPointer;
+    }
+    
+    
+    // if at head
+    if (!temporaryContactPointer->previousPointer && temporaryContactPointer->nextPointer) {
+        nextContactPointer = temporaryContactPointer->nextPointer;
+        temporaryContactPointer->nextPointer = NULL;
+        nextContactPointer->previousPointer = NULL;
+        *theContact = nextContactPointer;
+        
+    }
+    // if at tail
+    if (!temporaryContactPointer->nextPointer && temporaryContactPointer->previousPointer ) {
+        previousContactPointer  = temporaryContactPointer->previousPointer;
+        previousContactPointer->nextPointer = NULL;
+        temporaryContactPointer->previousPointer = NULL;
+    }
+    // if in the middle
+    if (temporaryContactPointer->nextPointer && temporaryContactPointer->previousPointer) {
+        nextContactPointer = temporaryContactPointer->nextPointer;
+        previousContactPointer  = temporaryContactPointer->previousPointer;
+        previousContactPointer->nextPointer = nextContactPointer;
+        nextContactPointer->previousPointer = previousContactPointer;
+        
+    }
+    
+}
 
 
 void printContacts(ContactPointer * theContact) {
@@ -107,7 +142,7 @@ void printContacts(ContactPointer * theContact) {
     else {
         printf("List is \n");
         while (temporaryContactPointer) {
-            printf("%s -> ", temporaryContactPointer->firstName);
+            printf("%s <-> ", temporaryContactPointer->firstName);
             temporaryContactPointer = temporaryContactPointer->nextPointer;
         }
         printf("NULL\n");
@@ -128,4 +163,67 @@ int getCount(ContactPointer * theContact) {
     return count;
     
     
+}
+
+void printContact(ContactPointer * theContact, int targetIndex) {
+    ContactPointer stalkContactPointer = *theContact;
+    for (int x=0; x<targetIndex; x++) {
+        stalkContactPointer = stalkContactPointer->nextPointer;
+    }
+    printf("Printing Contact: %s %s %s %s \n", stalkContactPointer->firstName, stalkContactPointer->lastName, stalkContactPointer->email, stalkContactPointer->phone);
+}
+
+void printField(ContactPointer * theContact, int targetIndex, char *field) {
+    ContactPointer stalkContactPointer = *theContact;
+    for (int x=0; x<targetIndex; x++) {
+        stalkContactPointer = stalkContactPointer->nextPointer;
+    }
+    if (strcmp(field, "lastName") == 0)
+        printf("%s\n",stalkContactPointer->lastName);
+    else if (strcmp(field, "firstName") == 0)
+        printf("%s\n",stalkContactPointer->firstName);
+    else if (strcmp(field, "email") == 0)
+        printf("%s\n",stalkContactPointer->email);
+    else if (strcmp(field, "phone") == 0)
+        printf("%s\n",stalkContactPointer->phone);
+}
+
+void saveFile(ContactPointer * theContact, char const * fileName) {
+    ContactPointer currentContactPointer = *theContact;
+    FILE * filePointer; // file pointer
+    char buffer[256]; // buffer
+    filePointer = fopen(fileName, "w"); //open for writing
+    while (currentContactPointer) {
+        strcpy(buffer, currentContactPointer->lastName);
+        strcat(buffer, ",");
+        strcat(buffer, currentContactPointer->firstName);
+        strcat(buffer, ",");
+        strcat(buffer, currentContactPointer->email);
+        strcat(buffer, ",");
+        strcat(buffer, currentContactPointer->phone);
+        fprintf(filePointer, "%s\n", buffer);
+        
+        currentContactPointer = currentContactPointer->nextPointer;
+    }
+    fclose(filePointer);
+}
+
+void loadFile(ContactPointer * theContact, char const * fileName) {
+    
+    FILE * filePointer;
+    char buffer[256];
+    int i=0;
+
+    
+    if (!(filePointer = fopen(fileName, "r"))) {
+        printf("Can't open file!\n");
+        return;
+    }
+    *theContact = NULL;
+    
+    
+    while (fgets(buffer, sizeof (buffer), filePointer)) {
+        buffer[strlen(buffer)-1] = '\0';
+        addContact(theContact, i, buffer);
+    }
 }

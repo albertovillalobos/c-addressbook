@@ -26,20 +26,35 @@ int main(int argc, const char * argv[]) {
 
     strcpy(buffer, "psudo,Ryan,ryanp@gmail.com,00000001");
     addContact(&headContact, 0, buffer);
-    printContacts(&headContact);
+//    printContacts(&headContact);
     strcpy(buffer, "webby,Albert,Albert@gmail.com,1010101");
     addContact(&headContact, 0, buffer);
-    printContacts(&headContact);
+//    printContacts(&headContact);
     strcpy(buffer, "officer,Sean,sean@gmail.com,123123123");
     addContact(&headContact, 0, buffer);
-    printContacts(&headContact);
+//    printContacts(&headContact);
     strcpy(buffer, "astrowizzard,Kim,kim@gmail.com,69696969");
     addContact(&headContact, 3, buffer);
-    printContacts(&headContact);
+//    printContacts(&headContact);
     strcpy(buffer, "asshole,Life,Life@gmail.com,buttrape");
     addContact(&headContact, 3, buffer);
     printContacts(&headContact);
     printf("The count is: %d\n",getCount(&headContact));
+//    printContact(&headContact, 0);
+//    printContact(&headContact, 1);
+//    printContact(&headContact, 2);
+//    printContact(&headContact, 3);
+//    printContact(&headContact, 4);
+    strcpy(buffer, "phone");
+    printField(&headContact, 0, buffer);
+    printField(&headContact, 1, buffer);
+    printField(&headContact, 2, buffer);
+    printField(&headContact, 3, buffer);
+    printField(&headContact, 4, buffer);
+    deleteContact(&headContact, 0);
+    printf("The count is: %d\n",getCount(&headContact));
+    printContacts(&headContact);    
+    
     
     
 //    while(1) {

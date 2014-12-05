@@ -27,13 +27,12 @@ typedef Contact * ContactPointer;
 
 
 void addContact(ContactPointer * theContact, int targetIndex, char *data);
-//void deleteContact(ContactPointer * theContact, int index);
+void deleteContact(ContactPointer * theContact, int targetIndex);
 void printContacts(ContactPointer * theContact);
-//void printField(ContactPointer * theContact, int index, char *field);
-//int getListSize(ContactPointer * theContact);
+void printContact(ContactPointer * theContact, int targetIndex);
+void printField(ContactPointer * theContact, int targetIndex, char *field);
 int getCount(ContactPointer * theContact);
-//void saveFile(ContactPointer * theContact, char const * filename);
-//void loadFile(char * filename);
-
+void saveFile(ContactPointer * theContact, char const * fileName);
+void loadFile(ContactPointer * theContact, char const * fileName);
 
 #endif
